@@ -4,8 +4,10 @@ version = "0.1.0"
 authors = ["seu <seu@panopticon.re>"]
 edition = "2018"
 license = "MIT"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+repository = "https://github.com/flanfly/quickjs-sys"
+homepage = "https://bellard.org/quickjs/"
+documentation = "https://bellard.org/quickjs/quickjs.html"
+description = "Low-level Rust bindings for Fabrice Bellards QuickJS Javascript Engine"
 
 [dependencies]
 
