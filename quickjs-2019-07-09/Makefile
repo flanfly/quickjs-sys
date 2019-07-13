@@ -50,7 +50,7 @@ prefix=/usr/local
 # use address sanitizer
 #CONFIG_ASAN=y
 
-OBJDIR=.obj
+OBJDIR=`mktemp -d`
 
 ifdef CONFIG_WIN32
   CROSS_PREFIX=i686-w64-mingw32-
