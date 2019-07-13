@@ -13,7 +13,6 @@ The documentation of the C API can be found
 
 # License
 
-The QuickJS library, written by Fabrice Bellard and Charlie Gordon as well as
-this bindings are licensed under
-
- * MIT license, ([LICENSE](LICENSE) or https://opensource.org/licenses/MIT
+The QuickJS library by Fabrice Bellard and Charlie Gordon as well as
+this bindings are licensed under the MIT license, ([LICENSE](LICENSE) or
+https://opensource.org/licenses/MIT)
