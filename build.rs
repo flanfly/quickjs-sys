@@ -6,7 +6,7 @@ use std::process::Command;
 
 fn main() {
     // compile quickjs
-    if cfg!(target_os = "linux") {
+    if cfg!(target_family = "unix") {
         Command::new("make")
                 .current_dir("quickjs-2019-07-09")
                 .status()

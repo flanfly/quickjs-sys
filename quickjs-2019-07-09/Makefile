@@ -33,8 +33,10 @@ CONFIG_LTO=y
 #CONFIG_WERROR=y
 
 ifndef CONFIG_WIN32
+ifneq ($(shell uname -s),Darwin)
 # force 32 bit build for some utilities
 CONFIG_M32=y
+endif
 endif
 ifdef CONFIG_DARWIN
 # use clang instead of gcc
@@ -50,7 +52,7 @@ prefix=/usr/local
 # use address sanitizer
 #CONFIG_ASAN=y
 
-OBJDIR=`mktemp -d`
+OBJDIR=.obj
 
 ifdef CONFIG_WIN32
   CROSS_PREFIX=i686-w64-mingw32-
