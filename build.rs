@@ -6,8 +6,9 @@ use std::process::Command;
 
 fn main() {
     // compile quickjs
-    if cfg!(target_os = "linux") {
+    if cfg!(target_os = "linux") || cfg!(target_os = "macos") {
         Command::new("make")
+                .arg("libquickjs.bn.lto.a")
                 .current_dir("quickjs-2019-07-09")
                 .status()
                 .expect("failed to make!");
@@ -18,7 +19,7 @@ fn main() {
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
     println!("cargo:rustc-link-search=quickjs-2019-07-09");
-    println!("cargo:rustc-link-lib=static=quickjs");
+    println!("cargo:rustc-link-lib=static=quickjs.bn.lto");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
