@@ -18,7 +18,7 @@ fn main() {
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
     println!("cargo:rustc-link-search=quickjs-2019-07-09");
-    println!("cargo:rustc-link-lib=quickjs");
+    println!("cargo:rustc-link-lib=static=quickjs");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
