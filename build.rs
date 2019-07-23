@@ -16,8 +16,6 @@ fn main() {
         unimplemented!()
     }
 
-    // Tell cargo to tell rustc to link the system bzip2
-    // shared library.
     println!("cargo:rustc-link-search=quickjs-2019-07-09");
     println!("cargo:rustc-link-lib=static=quickjs.bn.lto");
 
