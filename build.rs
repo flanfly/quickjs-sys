@@ -4,19 +4,21 @@ use std::env;
 use std::path::PathBuf;
 use std::process::Command;
 
+const QUICKJS_VERSION: &'static str = "quickjs-2019-07-28";
+
 fn main() {
     // compile quickjs
     if cfg!(target_os = "linux") || cfg!(target_os = "macos") {
         Command::new("make")
                 .arg("libquickjs.bn.lto.a")
-                .current_dir("quickjs-2019-07-09")
+                .current_dir(QUICKJS_VERSION)
                 .status()
                 .expect("failed to make!");
     } else {
         unimplemented!()
     }
 
-    println!("cargo:rustc-link-search=quickjs-2019-07-09");
+    println!("cargo:rustc-link-search={}", QUICKJS_VERSION);
     println!("cargo:rustc-link-lib=static=quickjs.bn.lto");
 
     // The bindgen::Builder is the main entry point
@@ -26,7 +28,7 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
-        .clang_arg("-Iquickjs-2019-07-09")
+        .clang_arg(format!("-I{}", QUICKJS_VERSION))
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
