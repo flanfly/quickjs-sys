@@ -18,7 +18,7 @@ fn main() {
         unimplemented!()
     }
 
-    println!("cargo:rustc-link-search={}", QUICKJS_VERSION);
+    println!("cargo:rustc-link-search={}/{}", env::var("CARGO_MANIFEST_DIR").unwrap(), QUICKJS_VERSION);
     println!("cargo:rustc-link-lib=static=quickjs.bn.lto");
 
     // The bindgen::Builder is the main entry point
